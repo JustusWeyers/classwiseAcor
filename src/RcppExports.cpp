@@ -20,22 +20,22 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
-// pairs
-NumericMatrix pairs(NumericMatrix data, NumericVector FromTo);
-RcppExport SEXP _classwiseAcor_pairs(SEXP dataSEXP, SEXP FromToSEXP) {
+// acor_pairs
+NumericMatrix acor_pairs(NumericMatrix data, NumericVector FromTo);
+RcppExport SEXP _classwiseAcor_acor_pairs(SEXP dataSEXP, SEXP FromToSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< NumericMatrix >::type data(dataSEXP);
     Rcpp::traits::input_parameter< NumericVector >::type FromTo(FromToSEXP);
-    rcpp_result_gen = Rcpp::wrap(pairs(data, FromTo));
+    rcpp_result_gen = Rcpp::wrap(acor_pairs(data, FromTo));
     return rcpp_result_gen;
 END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
     {"_classwiseAcor_rcpp_hello_world", (DL_FUNC) &_classwiseAcor_rcpp_hello_world, 0},
-    {"_classwiseAcor_pairs", (DL_FUNC) &_classwiseAcor_pairs, 2},
+    {"_classwiseAcor_acor_pairs", (DL_FUNC) &_classwiseAcor_acor_pairs, 2},
     {NULL, NULL, 0}
 };
 

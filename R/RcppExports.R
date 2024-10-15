@@ -5,7 +5,7 @@ rcpp_hello_world <- function() {
     .Call(`_classwiseAcor_rcpp_hello_world`)
 }
 
-pairs <- function(data, FromTo) {
-    .Call(`_classwiseAcor_pairs`, data, FromTo)
+acor_pairs <- function(data, FromTo) {
+    .Call(`_classwiseAcor_acor_pairs`, data, FromTo)
 }
 

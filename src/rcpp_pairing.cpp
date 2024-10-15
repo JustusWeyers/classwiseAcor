@@ -2,7 +2,7 @@
 using namespace Rcpp;
 
 // [[Rcpp::export]]
-NumericMatrix pairs (NumericMatrix data, NumericVector FromTo) {
+NumericMatrix acor_pairs (NumericMatrix data, NumericVector FromTo) {
   // Number of maximum rows of result data.frame
   int n = data.rows() * (FromTo[1]-FromTo[0]);
   // Empty matrix for results with n rows and two columns
