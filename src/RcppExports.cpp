@@ -10,16 +10,6 @@ Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
 Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 #endif
 
-// rcpp_hello_world
-List rcpp_hello_world();
-RcppExport SEXP _classwiseAcor_rcpp_hello_world() {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    rcpp_result_gen = Rcpp::wrap(rcpp_hello_world());
-    return rcpp_result_gen;
-END_RCPP
-}
 // acor_pairs
 NumericMatrix acor_pairs(NumericMatrix data, NumericVector FromTo);
 RcppExport SEXP _classwiseAcor_acor_pairs(SEXP dataSEXP, SEXP FromToSEXP) {
@@ -34,7 +24,6 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_classwiseAcor_rcpp_hello_world", (DL_FUNC) &_classwiseAcor_rcpp_hello_world, 0},
     {"_classwiseAcor_acor_pairs", (DL_FUNC) &_classwiseAcor_acor_pairs, 2},
     {NULL, NULL, 0}
 };

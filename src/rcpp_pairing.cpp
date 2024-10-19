@@ -4,30 +4,24 @@ using namespace Rcpp;
 // [[Rcpp::export]]
 NumericMatrix acor_pairs (NumericMatrix data, NumericVector FromTo) {
   // Number of maximum rows of result data.frame
-  int n = data.rows() * (FromTo[1]-FromTo[0]);
+  int n = data.rows() * (FromTo[1] - FromTo[0]);
   // Empty matrix for results with n rows and two columns
-  NumericMatrix values(n,2);
+  NumericMatrix values(n, 2);
   // Keep track of next row to store result
   int runner = 0;
 
   // Iterate over each row in 'data'
-  for (int i = 0; i < (data.rows()-(FromTo[1]-FromTo[0])); i++) {
-    // For each row in data set j to zero
-    int j = 1;
+  for (int i = 0; i < data.rows(); i++) {
+    // For each row in data set j to From
+    int j = FromTo[0];
     // For each timestamp get the timestamps within by FromTo
-    while (std::abs(data(i+j,0)-data(i,0)) < FromTo[1]) {
-      // Break loop if index i + j exceeds data.rows()
-      if ((i+j) > data.rows()) {
-        break;
-      }
-      if (std::abs(data(i+j,0)-data(i,0)) >= FromTo[0]) {
-        // Store value of current timestamp in first column
-        values(runner,0) = data(i, 1);
-        // Store value of FromTo-data in second column
-        values(runner,1) = data(i+j, 1);
-        // Increment global runner variable
-        runner++;
-      }
+    while (i - j >= 0 && j < FromTo[1]) {
+      // Store value of current timestamp in first column
+      values(runner, 0) = data(i, 1);
+      // Store value of FromTo-data in second column
+      values(runner, 1) = data(i-j, 1);
+      // Increment global runner variable
+      runner++;
       // Increment j for the next FromTo-data
       j++;
     }
