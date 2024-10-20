@@ -13,7 +13,7 @@ acor_cpp <- function(data, acf, stop) {
   for (i in 1:nrow(acf)) {
     # Calculate pairs via Rcpp function
     pairs = acor_pairs(data = data, FromTo = c(acf[i,1], acf[i,2]))
-    print(head(data.frame(x1 = pairs[,1], x2 = pairs[,2])[order(pairs[,1]),], n = 30))
+    # print(head(data.frame(x1 = pairs[,1], x2 = pairs[,2])[order(pairs[,1]),], n = 30))
     # Calculate correlation coefficient
     acf[i,3] = cor(pairs[,1], pairs[,2])
     # Count number of instances

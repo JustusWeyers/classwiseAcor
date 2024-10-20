@@ -1,20 +1,13 @@
 ---
-title: "README"
-output: rmarkdown::html_vignette
-vignette: >
-  %\VignetteIndexEntry{README}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+title: "{classwiseAcor}"
+output: html_document
 ---
 
-```{r, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>"
-)
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r setup}
+```{r}
 library(classwiseAcor)
 
 data = internal$sampledata[,c("date", "id4")]
@@ -47,25 +40,24 @@ plot_acor = function(r_acor, cpp_acor) {
 plot_acor(r_acor, cpp_acor)
 ```
 
-```{r}
-set.seed(100)
-zahlen = sin(seq(0, 4*pi, length.out = 60))
-# zahlen[sample(1:30, 4)] = NA
-zahlen
-
-classwiseAcor::acor(
-  data = data.frame(ts = 1:60, data = zahlen), 
-  method = "r",
-  dt = 6, 
-  stop = 0.5
-)
-
-classwiseAcor::acor(
-  data = data.frame(ts = 1:60, data = zahlen), 
-  method = "cpp",
-  dt = 6, 
-  stop = 0.5
-)
-
+```{r, include=FALSE}
+# set.seed(100)
+# zahlen = sin(seq(0, 4*pi, length.out = 60))
+# # zahlen[sample(1:30, 4)] = NA
+# zahlen
+# 
+# classwiseAcor::acor(
+#   data = data.frame(ts = 1:60, data = zahlen), 
+#   method = "r",
+#   dt = 6, 
+#   stop = 0.5
+# )
+# 
+# classwiseAcor::acor(
+#   data = data.frame(ts = 1:60, data = zahlen), 
+#   method = "cpp",
+#   dt = 6, 
+#   stop = 0.5
+# )
 ```
 

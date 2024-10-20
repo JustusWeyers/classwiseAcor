@@ -16,7 +16,7 @@ acor_r <- function(data, acf, stop){
   # Loop over classes aka rows in acf
   for(i in 1:(nrow(acf)-1)) {
     sel = which(dist_data >= acf[i,1] & dist_data < acf[i,2], arr.ind = TRUE)
-    print(head(data.frame(x1 = data[sel[,1],2], x2 = data[sel[,2],2])[order(data[sel[,1],2]),], n = 30))
+    # print(head(data.frame(x1 = data[sel[,1],2], x2 = data[sel[,2],2])[order(data[sel[,1],2]),], n = 30))
     acf[i,3] <- cor(data[sel[,1],2], data[sel[,2],2])
     acf[i,4] <- length(sel)
     # Eventually kill process
