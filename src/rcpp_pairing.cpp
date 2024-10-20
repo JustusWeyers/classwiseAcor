@@ -12,11 +12,11 @@ NumericMatrix acor_pairs (NumericMatrix data, NumericVector FromTo) {
 
   // Iterate over each row in 'data'
   for (int i = 0; i < data.rows(); i++) {
-    // For each row in data set j to From
-    int j = FromTo[0];
+    // For each row in data set j to 0
+    int j = 0;
     // For each timestamp get the timestamps within by FromTo
     while (i - j >= 0 && j < FromTo[1]) {
-      if ((data(i, 0) - data(i-j, 0)) < FromTo[1]) {
+      if ((data(i, 0) - data(i-j, 0)) >= FromTo[0] && (data(i, 0) - data(i-j, 0)) < FromTo[1]) {
         // Store value of current timestamp in first column
         values(runner, 0) = data(i, 1);
         // Store value of FromTo-data in second column
