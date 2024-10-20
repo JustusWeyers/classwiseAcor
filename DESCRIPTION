@@ -1,25 +1,15 @@
 Package: classwiseAcor
 Type: Package
-Title: What the Package Does in One 'Title Case' Line
+Title: A method to calculate autocorrelation of not-equidistant data classwise
 Version: 1.0
-Date: 2024-10-15
-Author: Your Name
-Maintainer: Your Name <your@email.com>
-Description: One paragraph description of what the package does as one or more full sentences.
+Date: 2024-10-20
+Author: Justus Weyers
+Maintainer: Justus Weyers <your@email.com>
+Description: Calculating autocorrelation.
 License: GPL (>= 2)
-Imports: 
-    attachment,
-    classwiseAcor,
-    ggplot2,
-    purrr,
-    Rcpp (>= 1.0.13),
-    usethis
+Imports: Rcpp (>= 1.0.13)
 LinkingTo: Rcpp
 RoxygenNote: 7.3.2
 Encoding: UTF-8
-Depends: 
-    R (>= 2.10)
-Suggests: 
-    knitr,
-    rmarkdown
-VignetteBuilder: knitr
+Depends: R (>= 2.10)
+LazyData: true

@@ -1,4 +1,14 @@
 #include <Rcpp.h>
+
+//' Creates pairs of data
+//' 
+//' @name acor_pairs
+//'
+//' @param data A data.frame. First column: date, second column: values.
+//' @param FromTo Limits for pairing
+//'
+//' @return Two column matrix of paired data
+
 using namespace Rcpp;
 
 // [[Rcpp::export]]

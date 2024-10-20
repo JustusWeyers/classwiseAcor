@@ -1,3 +1,6 @@
-importFrom(Rcpp, evalCpp)
-exportPattern("^[[:alpha:]]+")
 useDynLib(classwiseAcor, .registration=TRUE)
+importFrom(Rcpp, evalCpp)
+importFrom(stats, cor)
+importFrom(stats, dist)
+importFrom(stats, na.omit)
+exportPattern("^[[:alpha:]]+")

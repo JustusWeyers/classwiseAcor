@@ -5,6 +5,7 @@
 #' @param data A timeseries data.frame with a timestamp column in first position
 #' @param dt  Class-width in days
 #' @param method Choose between calculation via "r" or "cpp"
+#' @param stop Stop calculation when reached a certain minimum
 #' 
 #' @return A data.frame with class-wise levels of autocorrelation
 #' 
@@ -13,7 +14,7 @@
 
 acor = function(data, method = "r", dt = 30, stop = 0.5) {
   # Remove NA's from data
-  data = na.omit(data)
+  data = stats::na.omit(data)
   # Turn timestamp into numeric
   data[,1] = as.numeric(data[,1])
   # Turn data into unnamed matrix

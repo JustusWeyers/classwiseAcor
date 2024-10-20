@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r}
 library(classwiseAcor)
 
-data = internal$sampledata[,c("date", "id4")]
+data = classwiseAcor:::.sampledata[,c("date", "id4")]
 
 # Calculate via "r" method
 r_acor = classwiseAcor::acor(
