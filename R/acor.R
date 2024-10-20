@@ -11,7 +11,7 @@
 #' @export
 #'
 
-acor = function(data, dt, method = "r") {
+acor = function(data, method = "r", dt = 30, stop = 0.5) {
   # Remove NA's from data
   data = na.omit(data)
   # Turn timestamp into numeric
@@ -31,9 +31,9 @@ acor = function(data, dt, method = "r") {
   acf$To = classes[-1]
   
   if (identical(method, "r")) {
-    return(acor_r(data, acf))
+    return(acor_r(data, acf, stop))
   } else if (identical(method, "cpp")) {
-    return(acor_cpp(data, acf))
+    return(acor_cpp(data, acf, stop))
   } else {
     return(NULL)
   }

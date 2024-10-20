@@ -16,12 +16,14 @@ NumericMatrix acor_pairs (NumericMatrix data, NumericVector FromTo) {
     int j = FromTo[0];
     // For each timestamp get the timestamps within by FromTo
     while (i - j >= 0 && j < FromTo[1]) {
-      // Store value of current timestamp in first column
-      values(runner, 0) = data(i, 1);
-      // Store value of FromTo-data in second column
-      values(runner, 1) = data(i-j, 1);
-      // Increment global runner variable
-      runner++;
+      if ((data(i, 0) - data(i-j, 0)) < FromTo[1]) {
+        // Store value of current timestamp in first column
+        values(runner, 0) = data(i, 1);
+        // Store value of FromTo-data in second column
+        values(runner, 1) = data(i-j, 1);
+        // Increment global runner variable
+        runner++;
+      }
       // Increment j for the next FromTo-data
       j++;
     }
