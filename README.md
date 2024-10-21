@@ -1,7 +1,9 @@
 # Installation
 
+``` r
 install.packages("remotes")
 remotes::install_github("JustusWeyers/classwiseAcor")
+```
 
 # Example
 This Example uses some internal package data for showcasing.
