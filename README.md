@@ -1,7 +1,16 @@
+# Installation
+
+install.packages("remotes")
+remotes::install_github("JustusWeyers/classwiseAcor")
+
+# Example
+This Example uses some internal package data for showcasing.
+Measurements of the time efficiency of the individual calculation methods could be carried out with the {profvis} package, for example.
+
 ``` r
 library(classwiseAcor)
 
-data = internal$sampledata[,c("date", "id4")]
+data = classwiseAcor:::.sampledata[,c("date", "id4")]
 
 # Calculate via "r" method
 r_acor = classwiseAcor::acor(
